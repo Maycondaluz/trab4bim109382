@@ -2,6 +2,7 @@ package br.com.mayconluz.repository.entity;
 
 import java.time.LocalDateTime;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +10,22 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 
 @Entity // annotation que realiza a identificaçao desta classe que é uma tabela com persistencia JPA.
 @Table(name="tb_pessoa") // annotation identifica a tabela pessoa no banco de dados
+
+
+/*
+ * esta query serve para retornar todos os registros cadastrados no banco.
+ */
+@NamedQueries({
+
+	@NamedQuery(name = "PessoaEntity.findAll",query= "SELECT p FROM PessoaEntity p")
+
+})
 
 /**
  *
