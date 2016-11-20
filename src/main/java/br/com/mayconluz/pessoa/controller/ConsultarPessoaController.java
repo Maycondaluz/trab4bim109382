@@ -65,7 +65,7 @@ public class ConsultarPessoaController implements Serializable {
 		this.pessoaModel = pessoaModel;
 	}
 
-	/***
+	/*
 	 * na inicializaçao da classe este metodo é chamado para carregar as pessoas persistendas no banco
 	 */
 	@PostConstruct
@@ -73,6 +73,31 @@ public class ConsultarPessoaController implements Serializable {
 
 		// retorna as pessoas cadastradas no banco de dados.
 		this.pessoas = pessoaRepository.GetPessoas();
+	}
+
+	/*
+	 * CARREGA INFORMAÇÕES DE UMA PESSOA PARA SER EDITADA
+	 * @param pessoaModel
+	 */
+	public void Editar(PessoaModel pessoaModel){
+
+		/*PEGA APENAS A PRIMEIRA LETRA DO SEXO PARA SETAR NO CAMPO(M OU F)*/
+		pessoaModel.setSexo(pessoaModel.getSexo().substring(0, 1));
+
+		this.pessoaModel = pessoaModel;
+
+	}
+
+	/*
+	 * ATUALIZA O REGISTRO QUE FOI ALTERADO
+	 */
+	public void AlterarRegistro(){
+
+		this.pessoaRepository.AlterarRegistro(this.pessoaModel);
+
+
+		/*RECARREGA OS REGISTROS*/
+		this.init();
 	}
 
 
