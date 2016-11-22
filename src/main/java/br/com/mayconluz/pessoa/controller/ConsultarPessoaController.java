@@ -100,5 +100,19 @@ public class ConsultarPessoaController implements Serializable {
 		this.init();
 	}
 
+	/***
+	 * este metodo realiza a exclusao de um registro cadastradao no banco de dados.
+	 * @param pessoaModel
+	 */
+	public void ExcluirPessoa(PessoaModel pessoaModel){
+
+		//exclui a pessoa do banco de dados
+		this.pessoaRepository.ExcluirRegistro(pessoaModel.getCodigo());
+
+		//remove a pessoa da lista e depois atualiza o datatable
+		this.pessoas.remove(pessoaModel);
+
+	}
+
 
 }
