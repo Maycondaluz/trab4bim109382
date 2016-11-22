@@ -13,17 +13,19 @@ import javax.persistence.Table;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+//annotation que realiza a identificaçao desta classe que é uma tabela com persistencia JPA.
+@Entity
+//annotation identifica a tabela pessoa no banco de dados
+@Table(name="tb_pessoa")
 
-@Entity // annotation que realiza a identificaçao desta classe que é uma tabela com persistencia JPA.
-@Table(name="tb_pessoa") // annotation identifica a tabela pessoa no banco de dados
 
-
-/*
+/**
  * esta query serve para retornar todos os registros cadastrados no banco.
  */
 @NamedQueries({
 
-	@NamedQuery(name = "PessoaEntity.findAll",query= "SELECT p FROM PessoaEntity p")
+	@NamedQuery(name = "PessoaEntity.findAll",query= "SELECT p FROM PessoaEntity p"),
+	@NamedQuery(name="PessoaEntity.GroupByOrigemCadastro",query= "SELECT p.origemCadastro, count(p) as total FROM PessoaEntity p GROUP By p.origemCadastro")
 
 })
 
