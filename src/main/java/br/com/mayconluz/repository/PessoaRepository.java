@@ -219,7 +219,7 @@ public class PessoaRepository {
 		entityManager.merge(pessoaEntity);
 	}
 
-	/*
+	/**
 	 * exclui um registro do banco de dados.
 	 *
 	 * @param codigo

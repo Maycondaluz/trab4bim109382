@@ -44,7 +44,7 @@ public class UsuarioController implements Serializable {
 	public UsuarioModel getUsuarioModel() {
 		return usuarioModel;
 	}
-	/*
+	/**
 	 * é passado por parametro o valor do objeto da classe
 	 */
 
@@ -52,7 +52,7 @@ public class UsuarioController implements Serializable {
 		this.usuarioModel = usuarioModel;
 	}
 
-	/*
+	/**
 	 *retorna o usuario na autenticaçao
 	 */
 	public UsuarioModel GetUsuarioSession(){
@@ -62,7 +62,7 @@ public class UsuarioController implements Serializable {
 		return (UsuarioModel)facesContext.getExternalContext().getSessionMap().get("usuarioAutenticado"); // neste momento é feita a autenticação
 	}
 
-	/*
+	/**
 	 * finaliza a sessão do usuário e redireciona para a página de login
 	 */
 	public String Logout(){
@@ -71,7 +71,7 @@ public class UsuarioController implements Serializable {
 
 		return "/index.xhtml?faces-redirect=true"; // apos a validaçao estiver correta é retornado a pagina index.xhtml
 	}
-	/*
+	/**
 	 *  metodo que realiza a autenticaçao caso o usuario seja válido, tambem retorna a pagina do sistema
 	 *  caso os requisitos sejam atendidos, caso contrario sera retornado null.
 	 */
